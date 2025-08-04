@@ -31,5 +31,59 @@ public class User {
     private List<DailySummary> dailySummaries = new ArrayList<>();
 
     // Getters and setters
-    // ...
-} 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Set<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<String> roles) {
+        this.roles = roles;
+    }
+
+    public List<DiaryEntry> getDiaryEntries() {
+        return diaryEntries;
+    }
+
+    public void setDiaryEntries(List<DiaryEntry> diaryEntries) {
+        this.diaryEntries = diaryEntries;
+    }
+
+    public List<AppUsageStat> getAppUsageStats() {
+        return appUsageStats;
+    }
+
+    public void setAppUsageStats(List<AppUsageStat> appUsageStats) {
+        this.appUsageStats = appUsageStats;
+    }
+
+    public List<DailySummary> getDailySummaries() {
+        return dailySummaries;
+    }
+
+    public void setDailySummaries(List<DailySummary> dailySummaries) {
+        this.dailySummaries = dailySummaries;
+    }
+}
