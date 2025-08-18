@@ -45,15 +45,6 @@
             </PendingDiffInfo>
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/example/diaensho_backend/controllers/SearchController.java">
-          <value>
-            <PendingDiffInfo>
-              <option name="filePath" value="$PROJECT_DIR$/src/main/java/com/example/diaensho_backend/controllers/SearchController.java" />
-              <option name="originalContent" value=" " />
-              <option name="updatedContent" value="package com.example.diaensho_backend.controllers;&#10;&#10;import com.example.diaensho_backend.dto.SearchResponse;&#10;import com.example.diaensho_backend.entities.User;&#10;import com.example.diaensho_backend.repositories.UserRepository;&#10;import com.example.diaensho_backend.services.DatabaseSearchService;&#10;import org.springframework.beans.factory.annotation.Autowired;&#10;import org.springframework.security.core.annotation.AuthenticationPrincipal;&#10;import org.springframework.security.core.userdetails.UserDetails;&#10;import org.springframework.web.bind.annotation.*;&#10;&#10;import java.util.List;&#10;&#10;@RestController&#10;@RequestMapping(&quot;/api/search&quot;)&#10;public class SearchController {&#10;    @Autowired&#10;    private DatabaseSearchService searchService;&#10;    @Autowired&#10;    private UserRepository userRepository;&#10;&#10;    @GetMapping&#10;    public List&lt;SearchResponse&gt; search(@RequestParam(&quot;q&quot;) String query, @AuthenticationPrincipal UserDetails userDetails) {&#10;        User user = userRepository.findByUsername(userDetails.getUsername())&#10;                .orElseThrow(() -&gt; new RuntimeException(&quot;User not found&quot;));&#10;        &#10;        return searchService.searchSummaries(query, user);&#10;    }&#10;}" />
-            </PendingDiffInfo>
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/example/diaensho_backend/controllers/UsageStatsController.java">
           <value>
             <PendingDiffInfo>
