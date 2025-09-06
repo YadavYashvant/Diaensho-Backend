@@ -42,7 +42,7 @@ public class AiSummaryService {
                     user, today.atStartOfDay(), today.plusDays(1).atStartOfDay());
             List<AppUsageStat> stats = appUsageStatRepository.findAllByUserAndDate(user, today);
             if (entries.isEmpty() && stats.isEmpty()) continue;
-
+            
             StringBuilder prompt = new StringBuilder(PROMPT_TEMPLATE + "\n\n");
             prompt.append("Diary Entries:\n");
             for (DiaryEntry entry : entries) {
@@ -60,30 +60,30 @@ public class AiSummaryService {
 
     private void callGeminiAndSaveSummary(User user, LocalDate date, String prompt) {
         WebClient webClient = webClientBuilder.build();
-
+        
         GeminiRequest request = new GeminiRequest();
         request.contents = List.of(Map.of("parts", List.of(Map.of("text", prompt))));
-
+        
         Mono<GeminiResponse> responseMono = webClient.post()
                 .uri(GEMINI_API_URL + "?key=" + geminiApiKey)
                 .header("Content-Type", "application/json")
                 .bodyValue(request)
                 .retrieve()
                 .bodyToMono(GeminiResponse.class);
-
+                
         responseMono.subscribe(
             response -> {
                 String generatedText = extractGeneratedText(response);
                 String content = extractContent(generatedText);
                 String highlights = extractHighlights(generatedText);
-
+                
                 DailySummary summary = new DailySummary();
                 summary.setUser(user);
                 summary.setDate(date);
                 summary.setContent(content);
                 summary.setHighlights(highlights);
                 dailySummaryRepository.save(summary);
-
+                
                 // Index in our database search service
                 searchService.indexSummary(summary);
             },
@@ -130,13 +130,13 @@ public class AiSummaryService {
 
     static class GeminiResponse {
         public List<Candidate> candidates;
-
+        
         static class Candidate {
             public Content content;
-
+            
             static class Content {
                 public List<Part> parts;
-
+                
                 static class Part {
                     public String text;
                 }

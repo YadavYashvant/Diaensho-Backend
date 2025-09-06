@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class DiaryEntryRequest {
     private String text;
     private LocalDateTime timestamp;
-
+    
     // Getters and setters
     public String getText() {
         return text;

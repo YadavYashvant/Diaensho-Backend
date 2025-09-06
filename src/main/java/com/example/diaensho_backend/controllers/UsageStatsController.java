@@ -24,13 +24,13 @@ public class UsageStatsController {
     public AppUsageStat createUsageStat(@RequestBody AppUsageStatRequest request, @AuthenticationPrincipal UserDetails userDetails) {
         User user = userRepository.findByUsername(userDetails.getUsername())
                 .orElseThrow(() -> new RuntimeException("User not found"));
-
+        
         AppUsageStat stat = new AppUsageStat();
         stat.setPackageName(request.getPackageName());
         stat.setTotalTimeInForeground(request.getTotalTimeInForeground());
         stat.setDate(request.getDate());
         stat.setUser(user);
-
+        
         return appUsageStatRepository.save(stat);
     }
 
@@ -38,7 +38,7 @@ public class UsageStatsController {
     public List<AppUsageStat> createUsageStats(@RequestBody List<AppUsageStatRequest> requests, @AuthenticationPrincipal UserDetails userDetails) {
         User user = userRepository.findByUsername(userDetails.getUsername())
                 .orElseThrow(() -> new RuntimeException("User not found"));
-
+        
         List<AppUsageStat> stats = requests.stream().map(request -> {
             AppUsageStat stat = new AppUsageStat();
             stat.setPackageName(request.getPackageName());
@@ -47,7 +47,7 @@ public class UsageStatsController {
             stat.setUser(user);
             return stat;
         }).toList();
-
+        
         return appUsageStatRepository.saveAll(stats);
     }
 }

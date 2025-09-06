@@ -6,7 +6,7 @@ public class DailySummaryResponse {
     private String content;
     private String highlights;
     private LocalDate date;
-
+    
     // Getters and setters
     public String getContent() {
         return content;

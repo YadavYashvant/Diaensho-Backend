@@ -8,7 +8,6 @@ public class SearchResponse {
     private String highlights;
     private LocalDate date;
 
-    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -41,3 +40,4 @@ public class SearchResponse {
         this.date = date;
     }
 }
+} 

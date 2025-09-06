@@ -30,8 +30,10 @@ WORKDIR /app
 
 # Copy the built JAR from the build stage
 COPY --from=build /app/target/diaensho-backend-*.jar app.jar
+
 # Change ownership to spring user
 RUN chown spring:spring app.jar
+
 # Switch to non-root user
 USER spring
 
@@ -48,4 +50,3 @@ ENV SPRING_PROFILES_ACTIVE=prod
 
 # Run the application
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
-

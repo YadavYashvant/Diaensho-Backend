@@ -7,10 +7,10 @@ services:
       - "8080:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=prod
-      - DATABASE_URL=jdbc:postgresql://pg-27c89fc-lirice.b.aivencloud.com:16806/defaultdb?sslmode=require
-      - DATABASE_USERNAME=avnadmin
-      - DATABASE_PASSWORD=AVNS_axf0eg5kjmzrNIH4fib
-      - GEMINI_API_KEY=AIzaSyAnCvX2Ml_DAnVAen2TyE1I9ZWvxXy9Ddg
+      - DATABASE_URL=
+      - DATABASE_USERNAME=
+      - DATABASE_PASSWORD=
+      - GEMINI_API_KEY=
       - JWT_SECRET=diaensho_secret_key_that_is_long_enough_for_hmac_sha256_algorithm
       - JWT_EXPIRATION=86400000
     restart: unless-stopped

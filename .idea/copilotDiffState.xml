@@ -20,14 +20,6 @@
             </PendingDiffInfo>
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/docker-compose.yml">
-          <value>
-            <PendingDiffInfo>
-              <option name="filePath" value="$PROJECT_DIR$/docker-compose.yml" />
-              <option name="updatedContent" value="version: '3.8'&#10;&#10;services:&#10;  diaensho-backend:&#10;    build: .&#10;    ports:&#10;      - &quot;8080:8080&quot;&#10;    environment:&#10;      - SPRING_PROFILES_ACTIVE=prod&#10;      - DATABASE_URL=jdbc:postgresql://pg-27c89fc-lirice.b.aivencloud.com:16806/defaultdb?sslmode=require&#10;      - DATABASE_USERNAME=avnadmin&#10;      - DATABASE_PASSWORD=AVNS_axf0eg5kjmzrNIH4fib&#10;      - GEMINI_API_KEY=AIzaSyAnCvX2Ml_DAnVAen2TyE1I9ZWvxXy9Ddg&#10;      - JWT_SECRET=diaensho_secret_key_that_is_long_enough_for_hmac_sha256_algorithm&#10;      - JWT_EXPIRATION=86400000&#10;    restart: unless-stopped&#10;    healthcheck:&#10;      test: [&quot;CMD&quot;, &quot;curl&quot;, &quot;-f&quot;, &quot;http://localhost:8080/actuator/health&quot;]&#10;      interval: 30s&#10;      timeout: 10s&#10;      retries: 3&#10;      start_period: 40s" />
-            </PendingDiffInfo>
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/pom.xml">
           <value>
             <PendingDiffInfo>

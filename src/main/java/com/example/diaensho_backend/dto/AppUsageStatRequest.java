@@ -6,7 +6,7 @@ public class AppUsageStatRequest {
     private String packageName;
     private Long totalTimeInForeground;
     private LocalDate date;
-
+    
     // Getters and setters
     public String getPackageName() {
         return packageName;
